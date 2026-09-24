@@ -80,14 +80,14 @@ while running:
 
 
 
-        for i in rain:
+        for pos,i in enumerate(rain):
             velo = i[2]
             velo+=gravity
             y = i[1] # y postion
             y+=velo # velocity here
             new_tup = (i[0],y,velo)
             pygame.draw.line(Screen,(0,0,255),(i[0],y),(i[0],y+rain_lenth),rain_width)
-            pos = rain.index(i)
+            
             rain[pos] = new_tup
 
                     

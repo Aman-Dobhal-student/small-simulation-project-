@@ -8,7 +8,7 @@ Width = 800
 Height = 600
 
 spawn_time = pygame.time.get_ticks()
-drop_spawned = 0
+
  
 font = pygame.font.Font(None,50)
 start_text = font.render("START",True,(255,255,255))
@@ -72,10 +72,9 @@ while running:
                           rain_x = random.randint(0,799)
                           rain_y = random.randint(-100,-10)
                           rain.append((rain_x,rain_y,rain_velo_y))
-                          drop_spawned += 1
-                if drop_spawned >= 10:
-                    drop_spawned = 0
-                    spawn_time = current_time
+                    
+            
+                     spawn_time = current_time
         
 
 
@@ -86,21 +85,21 @@ while running:
             y = i[1] # y postion
             y+=velo # velocity here
             new_tup = (i[0],y,velo)
-            pygame.draw.line(Screen,(0,0,255),(i[0],y),(i[0],y+rain_lenth),rain_width)
+            
             
             rain[pos] = new_tup
 
-                    
-
-            
-
-                 
+                     
             if y>=600:
                 new_y = random.randint(-100,-10)
                 velo = 0
                 rain[pos] = (i[0],new_y,velo)
 
-            
+        for i in rain:
+             pygame.draw.line(Screen,(0,0,255),
+                              (i[0],y),
+                              (i[0],y+rain_lenth),rain_width)
+
                     
 
 
